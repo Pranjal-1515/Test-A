@@ -6,6 +6,8 @@ on:
 jobs:
   read-config-and-call:
     runs-on: ubuntu-latest
+    outputs:
+      name_value: ${{ steps.read_name.outputs.name_value }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,7 +18,8 @@ jobs:
           name_value=$(yq '.name' config.yaml)
           echo "name_value=$name_value" >> $GITHUB_OUTPUT
 
-      - name: Call Reusable Workflow
-        uses: Pranjal-1515/Test-Shared/.github/workflows/print-name.yml@main
-        with:
-          name_value: ${{ steps.read_name.outputs.name_value }}
+  call-reusable:
+    needs: read-config-and-call
+    uses: Pranjal-1515/Test-Shared/.github/workflows/print-name.yml@main
+    with:
+      name_value: ${{ needs.read-config-and-call.outputs.name_value }}
