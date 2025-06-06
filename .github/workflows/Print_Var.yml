@@ -20,6 +20,6 @@ jobs:
 
   call-reusable:
     needs: read-config-and-call
-    uses: Pranjal-1515/Test-Shared/.github/workflows/Shared.yml@main
+    uses: ./Test-Shared/.github/workflows/Shared.yml@main
     with:
       name_value: ${{ needs.read-config-and-call.outputs.name_value }}
