@@ -6,4 +6,6 @@ on:
 jobs:
   call-reusable:
     uses: Pranjal-1515/Test-Shared/.github/workflows/Shared.yml@main
+    with:
+        variable_path: Pranjal-1515/Test-A/.github/workflows/Pass_Variable.yaml@main
     
