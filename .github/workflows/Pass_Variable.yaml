@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: Print Name Value
         run: |
-           echo "The name value is: ${{ vars.name }}"
+           echo "The name value is: getting Stored"
