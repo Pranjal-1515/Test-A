@@ -6,4 +6,5 @@ on:
 jobs:
   call-reusable:
     uses: Pranjal-1515/Test-Shared/.github/workflows/Shared.yml@main
-    
+    with:
+      repo_name: "Test-A"
